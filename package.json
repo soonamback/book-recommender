@@ -1,0 +1,34 @@
+{
+  "name": "book-recommender",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soonamback/book-recommender.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soonamback/book-recommender/issues"
+  },
+  "homepage": "https://github.com/soonamback/book-recommender#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.2",
+    "catch-async": "^1.0.1",
+    "cheerio": "^1.0.0-rc.10",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.7",
+    "nodemon": "^2.0.15",
+    "validator": "^13.7.0"
+  }
+}
