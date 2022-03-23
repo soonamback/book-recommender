@@ -1,8 +1,15 @@
 const fs = require('fs')
 const cheerio = require('cheerio')
 const axios = require('axios')
+const { db } = require('./models/User')
+const Book = require('../src/models/Book')
 
-const API = 'http://books.toscrape.com/catalogue/category/books_1/index.html'
+
+
+
+  const API = `https://books.toscrape.com/catalogue/category/books_1/page-3.html`
+
+
 
 const scrapeSite = async () => {
   try {
@@ -34,6 +41,9 @@ const scrapeSite = async () => {
 
     console.log(bookItem)
 
+    
+    // db.books.insertMany(bookItem)
+
     fs.writeFile('books.json', JSON.stringify(bookItem, null, 2), (error) => {
       if (error) {
         console.log(error)
@@ -43,7 +53,10 @@ const scrapeSite = async () => {
     })
   } catch (e) {
     console.error(e)
+  } 
   }
-}
 
-scrapeSite()
+    
+
+
+//scrapeSite()
