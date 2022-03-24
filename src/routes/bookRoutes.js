@@ -15,6 +15,9 @@ router.route('/cheaper-books')
 router.route('/insert')
 .post(bookController.insertBooks)
 
+router.route('/fancy-books')
+.post(bookController.fancyBooks)
+
 
 
 module.exports = router;

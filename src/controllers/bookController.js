@@ -39,7 +39,7 @@ exports.cheaperBooks = (req, res) =>
         .where('price').lt(price).then(books => res.status(200).json(books))
         .catch(err => res.status(404).json({ success: false }))
    
-        
+}  
 
         /*
         for(let price in booksJson){
@@ -57,10 +57,7 @@ exports.cheaperBooks = (req, res) =>
 // });
 
            
-        }
-
-
-
+      
 exports.insertBooks = (req, res) => {
    
     Book.insertMany(booksJson).then(function(){
@@ -74,3 +71,12 @@ exports.insertBooks = (req, res) => {
 
 
 
+
+exports.fancyBooks = (req, res) =>
+{
+    const price = req.body.price
+    Book.find()
+    .where('price')
+    .gte(price).then(books => res.status(200).json(books))
+    .catch(err => res.status(404).json({ success: false}))
+}

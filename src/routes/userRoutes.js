@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.post('/signup', authController.signup)
 router.post('/login', authController.login)
+router.patch('/update-role', authController.updateRole)
 
 router
 .route('/')
@@ -15,6 +16,8 @@ router
 .get(userController.getUser)
 .patch(userController.updateUser)
 .delete(userController.deleteUser)
+
+
 
 
 module.exports = router;

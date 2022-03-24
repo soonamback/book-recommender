@@ -1,5 +1,7 @@
 const data = require('../public/books.json');
 const fs = require('fs');
+
+
 const newData = data.map(element => {
    // const [title, price, image ] = element
     console.log(element.price);

@@ -42,7 +42,7 @@ const token = signToken(newUser._id);
                 //CHECK IF EMAIL AND PASSWORD EXIST
     
                 if(!email || !password) {
-                    return next(new Error('please provide email and password')) 
+                    return next(new Error('Username or Password not present')) 
                 }
     
                 //CHECK IF USER EXISTS AND PASSWORD IS CORRECT
@@ -51,7 +51,7 @@ const token = signToken(newUser._id);
 
                 if(!user || ! await user.correctPassword(password, user.password)) 
                 {
-                    return next(new Error('incorrect email or password', 401))
+                    return next(new Error('Please sign up first', 401))
                 }
                 // IF EVERYTHING IS OK SEND TOKEN TO CLIENT
                 const token = signToken(user._id);
@@ -64,3 +64,33 @@ const token = signToken(newUser._id);
             }
           
         }
+
+exports.updateRole = async (req, res, next) =>
+{
+    try {
+        const { role, id } = req.body
+    
+        if(role && id) {
+            if(role === "admin") {
+                await User.findById(id)
+                .then((user) => {
+                    if(user.role !== "admin") {
+                        user.role = role
+                        user.save((err) => {
+                            if(err) {
+                                res.status(400).json({ message : 'An error occured', error: err.message})
+                                process.exit(1);
+                            }
+                            res.status(201),json({ message: 'Update successful', user})
+                        })
+                    } else {
+                        res.status(400).json({ message: 'User is already an Admin'})
+                    }
+                })
+            } 
+    } 
+    } catch (error) {
+        throw error
+    }
+          
+}

@@ -29,6 +29,11 @@ const userSchema = new mongoose.Schema({
              },
              message: 'passwords are not identical'
          }
+     },
+     role: {
+         type: String,
+         default: "User",
+         required: [true, 'Please select your Role']
      }
 
  });
