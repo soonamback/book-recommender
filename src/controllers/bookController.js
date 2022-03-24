@@ -62,9 +62,9 @@ exports.insertBooks = (req, res) => {
    
     Book.insertMany(booksJson).then(function(){
         console.log("Data inserted")
-        res.status(200)  // Success
+        res.status(200)  
 }).catch(function(error){
-    console.log(error)      // Failure
+    console.log(error)     
     })
 }
 
